@@ -1,15 +1,17 @@
 
-<p-panel header="Prenota Backup Gestionale" [style]="{'margin-top': '1em', 'margin-bottom': '1em'}">
+<p-panel header="Prenota Backup Gestionale" [style]="{'margin': '1em'}" [toggleable]="true">
     <div class="field col-12 md:col-4">
         <label for="icon">Data riferimento:</label>
+        &nbsp;
         <p-calendar [(ngModel)]="dataRifBckupGest" [showIcon]="true" inputId="icon"></p-calendar>
+        &nbsp;
         <button pButton pRipple type="button" label="Start" class="p-button-raised" icon="pi pi-chevron-right"
             [disabled]="dataRifBckupGest === undefined"
             (click)="start()"></button>
     </div>
 </p-panel>
 
-<p-panel header="Storico" [style]="{'margin-bottom': '2em'}">
+<p-panel header="Storico" [style]="{'margin': '1em'}">
 
     <p-table #table1 [value]="listaCompleta" responsiveLayout="scroll" selectionMode="single" [(selection)]="prenotazioneSelected" dataKey="periodo"
     [globalFilterFields]="['periodo','utente']" (onRowSelect)="selectRow($event)">
@@ -47,42 +49,49 @@
 
 </p-panel>
 
-<p-dialog header="Dettagli" [(visible)]="showDialog">
-    <div *ngIf="dettagliPrenotazione" style="width:700px">
-        <div class="col-12" style="text-align:center">Richiesta numero {{dettagliPrenotazione.id}} {{dettagliPrenotazione.pctAvanzamento}}% - Archivio inviato...</div>
-
-        <div class="col-6 d-flex">
-            <div class="col-5"> Periodo</div><div class="col-6"> {{dettagliPrenotazione.periodo}}</div>
-            <div class="col-5"> Backup prenotato da</div><div class="col-6"> {{dettagliPrenotazione.utente}}</div>
-            <div class="col-5"> il</div><div class="col-6"> {{dettagliPrenotazione.tmsPrenotazione}}</div>
-            <div class="col-5"> Note</div><div class="col-6"> {{dettagliPrenotazione.note}}</div>
-            <div class="col-5"> Start Elaborazione</div><div class="col-6"> {{dettagliPrenotazione.startElab}}</div>
-            <div class="col-5"> Fine Elaborazione</div><div class="col-6"> {{dettagliPrenotazione.fineElab}}</div>
-            <div class="col-5"> Nome file backup</div><div class="col-6"> {{dettagliPrenotazione.fileBackup}}</div>
-            <div class="col-5"> Dimensione file backup</div><div class="col-6"> {{dettagliPrenotazione.sizeFileBackup}}</div>
-            <div class="col-5"> Svecchiamento prenotato da</div><div class="col-6"> {{dettagliPrenotazione.utentePrenotSvecch}}</div>
-            <div class="col-5"> Svecchiamento prenotato il</div><div class="col-6"> {{dettagliPrenotazione.tmsPrenotSvecch}}</div>
-            <div class="col-5"> Stato svecchiamento</div><div class="col-6"> {{dettagliPrenotazione.statoSvecch}}</div>
-        </div>
-        <div class="col-6">
-            <p-table [value]="dettagliPrenotazione.elencoPartizioni" responsiveLayout="scroll">
-                <ng-template pTemplate="header">
-                    <tr>
-                        <th>Partizione</th>
-                        <th>Input</th>
-                        <th>Output</th>
-                        <th>Mapping</th>
-                    </tr>
-                </ng-template>
-                <ng-template pTemplate="body" let-p>
-                    <tr>
-                        <td>{{p.codPartCol}}</td>
-                        <td>{{p.input}}</td>
-                        <td>{{p.output}}</td>
-                        <td>{{p.mapping}}</td>
-                    </tr>
-                </ng-template>
-            </p-table>
+<p-dialog header="Richiesta numero {{dettagliPrenotazione?.id}}" [(visible)]="showDialog" [modal]="true">
+    <div *ngIf="dettagliPrenotazione" style="width:90vw">
+        <div class="col-12 row">
+            <div class="col-8 row">
+                <div class="col-5 leftcol"> Stato</div><div class="col-6">
+                    {{dettagliPrenotazione.pctAvanzamento}}% - {{dettagliPrenotazione.stato}}
+                    <button *ngIf="dettagliPrenotazione.stato=='Backup eseguito'" pButton pRipple type="button" label="Prenota svecchiamento" class="p-button-raised" icon="pi pi-save"
+                        [disabled]="dataRifBckupGest === undefined"
+                        (click)="prenotaSvecchiamento()"></button>
+                </div>
+                <div class="col-5 leftcol"> Periodo</div><div class="col-6"> {{dettagliPrenotazione.periodo}}</div>
+                <div class="col-5 leftcol"> Backup prenotato da</div><div class="col-6"> {{dettagliPrenotazione.utente}}</div>
+                <div class="col-5 leftcol"> il</div><div class="col-6"> {{dettagliPrenotazione.tmsPrenotazione}}</div>
+                <div class="col-5 leftcol"> Note</div><div class="col-6"><!-- TODO scrollable --> {{dettagliPrenotazione.note}}</div>
+                <div class="col-5 leftcol"> Start Elaborazione</div><div class="col-6"> {{dettagliPrenotazione.startElab}}</div>
+                <div class="col-5 leftcol"> Fine Elaborazione</div><div class="col-6"> {{dettagliPrenotazione.fineElab}}</div>
+                <div class="col-5 leftcol"> Nome file backup</div><div class="col-6"> {{dettagliPrenotazione.fileBackup}}</div>
+                <div class="col-5 leftcol"> Dimensione file backup</div><div class="col-6"> {{dettagliPrenotazione.sizeFileBackup}}</div>
+                <div class="col-5 leftcol"> Svecchiamento prenotato da</div><div class="col-6"> {{dettagliPrenotazione.utentePrenotSvecch}}</div>
+                <div class="col-5 leftcol"> Svecchiamento prenotato il</div><div class="col-6"> {{dettagliPrenotazione.tmsPrenotSvecch}}</div>
+                <div class="col-5 leftcol"> Stato svecchiamento</div><div class="col-6"> {{dettagliPrenotazione.statoSvecch}}</div>
+            </div>
+            <div class="col-4">
+                <div>Elenco partizioni</div>
+                <p-table [value]="dettagliPrenotazione.elencoPartizioni" responsiveLayout="scroll">
+                    <ng-template pTemplate="header">
+                        <tr>
+                            <th>Partizione</th>
+                            <th>Input</th>
+                            <th>Output</th>
+                            <th>Mapping</th>
+                        </tr>
+                    </ng-template>
+                    <ng-template pTemplate="body" let-p>
+                        <tr>
+                            <td>{{p.codPartCol}}</td>
+                            <td><span [ngClass]="p.input ? 'pi pi-check' : 'pi'"></span></td>
+                            <td><span [ngClass]="p.output ? 'pi pi-check' : 'pi'"></span></td>
+                            <td><span [ngClass]="p.mapping ? 'pi pi-check' : 'pi'"></span></td>
+                        </tr>
+                    </ng-template>
+                </p-table>
+            </div>
         </div>
     </div>
 </p-dialog>

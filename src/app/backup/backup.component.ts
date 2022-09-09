@@ -33,6 +33,10 @@ export class BackupComponent implements OnInit {
     // TODO
   }
 
+  prenotaSvecchiamento() {
+    // TODO
+  }
+
   doFilter(table: any, $event: Event) {
     table.filterGlobal(($event.target as HTMLInputElement).value, 'contains')
   }

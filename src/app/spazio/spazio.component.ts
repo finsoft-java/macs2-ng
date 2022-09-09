@@ -184,7 +184,7 @@ export class SpazioComponent implements OnInit {
 
     this.detailsChartOptions = {
       responsive: true,
-      //maintainAspectRatio: false,
+      maintainAspectRatio: false,
       plugins: {
         legend: {
           position: 'chartArea',

@@ -3,6 +3,7 @@ export interface DettagliPrenotazione {
     periodo: string;
     partizioniPrenotate: number;
     pctAvanzamento: number;
+    stato: string;
     tmsPrenotazione: string;
     utente: string;
     note: string;

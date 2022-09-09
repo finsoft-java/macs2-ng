@@ -45,14 +45,14 @@ import { AccessDeniedComponent } from './access-denied/access-denied.component';
     DropdownModule,
     ButtonModule,
     ChartModule,
-    CardModule,
     PanelModule,
     CalendarModule,
     TableModule,
     InputTextModule,
     ProgressBarModule,
     DialogModule,
-    ScrollPanelModule,
+    CardModule, // attualmente non usato
+    ScrollPanelModule, // attualmente non usato
   ],
   providers: [],
   bootstrap: [AppComponent]

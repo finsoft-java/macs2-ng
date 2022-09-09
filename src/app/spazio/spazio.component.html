@@ -1,20 +1,23 @@
 
 <p-accordion>
     <p-accordionTab header="Stime Giri Eseguibili - Dati aggiornati al: {{dataAggiornamento}}">
-        <p-card [style]="{'width': '90%', 'margin-bottom': '2em'}">
+        <div class="col-12">
             <p-dropdown [options]="options" [(ngModel)]="periodo" optionLabel="label" optionValue="value"></p-dropdown>
             <button pButton pRipple type="button" label="Aggiorna statistiche" class="p-button-raised" icon="pi pi-refresh" (click)="aggiornaStatistiche()"></button>
-        </p-card>
-        <p-card [style]="{'width': '30%', 'margin-bottom': '2em'}">
-            <p-chart *ngIf="gaugeChartData" type="doughnut" [data]="gaugeChartData" [options]="gaugeChartOptions"></p-chart>
-        </p-card>
-        <p-card [style]="{'width': '70%', 'margin-bottom': '2em'}">
-            <p-chart *ngIf="giriChartData" type="bar" zoom="true" [data]="giriChartData" [options]="giriChartOptions"></p-chart>
-        </p-card>
+        </div>
+        <div class="d-flex">
+            <div class="col-3">
+                <p-chart *ngIf="gaugeChartData" type="doughnut" [data]="gaugeChartData" [options]="gaugeChartOptions"></p-chart>
+            </div>
+            <div class="col-2"></div>
+            <div class="col-7">
+                <p-chart *ngIf="giriChartData" type="bar" zoom="true" [data]="giriChartData" [options]="giriChartOptions"></p-chart>
+            </div>
+        </div>
     </p-accordionTab>
     <p-accordionTab header="Spazio occupato / libero - Dati aggiornati al: {{dataAggiornamento}}">
-        <p-card>
+        <div class="col-12" style="height:calc( 100vh - 400px );">
             <p-chart *ngIf="detailsChartData" type="bar" zoom="true" [data]="detailsChartData" [options]="detailsChartOptions"></p-chart>
-        </p-card>
+        </div>
     </p-accordionTab>
 </p-accordion>
