@@ -1,0 +1,15 @@
+{
+  "periodo" : "201612",
+  "partizioniPrenotate": 11,
+  "pctAvanzamento": 85,
+  "tmsPrenotazione": "24-10-2018 16:24:31",
+  "utente": "POLIEC CRISTIAN",
+  "elencoPartizioni": [
+    {
+      "codPartCol": "P1234",
+      "input": true,
+      "output": true,
+      "mapping": true
+    }
+  ]
+}

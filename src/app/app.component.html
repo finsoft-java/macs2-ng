@@ -1,0 +1,34 @@
+<table class="m2firstheader" cellpadding="0" cellspacing="0">
+  <thead>
+    <tr>
+      <td class="m2header" style="text-align: left;"><div id="j_idt7"></div>
+        <!-- TODO PRELOADER
+        <div id="j_idt8" class="ui-dialog ui-widget ui-widget-content ui-overlay-hidden ui-corner-all ui-shadow">
+          <div class="ui-dialog-titlebar ui-widget-header ui-helper-clearfix ui-corner-top">
+            <span id="j_idt8_title" class="ui-dialog-title">Attendere prego...</span>
+          </div>
+          <div class="ui-dialog-content ui-widget-content"><img id="j_idt9" src="/assets/images/preloader_circular.gif" alt="" />
+          </div>
+        </div-->
+      </td>
+      <td class="m2header" colspan="10">Benvenuto {{cognomeNome}}!   
+      </td>
+    </tr>
+  </thead>
+</table>
+
+<table class="m2secondtheader">
+  <tbody class="m2acronimo">
+    <tr>
+      <td style="padding-bottom: 53px; padding-left: 16px;">
+        <b>M.A.C.S. 2</b>
+      </td>
+      <td rowspan="4" style="text-align:right"><img id="j_idt13" src="/assets/images/logobisp.gif" alt="" />
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<p-menubar [model]="items"></p-menubar>
+
+<router-outlet></router-outlet>

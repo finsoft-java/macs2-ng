@@ -1,0 +1,23 @@
+[
+    {
+      "periodo" : "201612",
+      "partizioniPrenotate": 11,
+      "pctAvanzamento": 85,
+      "tmsPrenotazione": "24-10-2018 16:24:31",
+      "utente": "POLIEC CRISTIAN"
+    },
+    {
+      "periodo" : "200512",
+      "partizioniPrenotate": 0,
+      "pctAvanzamento": 100,
+      "tmsPrenotazione": "12-05-2015 15:33:52",
+      "utente": "VOLPATO ANDREA"
+    },
+    {
+      "periodo" : "201212",
+      "partizioniPrenotate": 1,
+      "pctAvanzamento": 90,
+      "tmsPrenotazione": "08-05-2013 14:25:20",
+      "utente": "POLIEC CRISTIAN"
+    }
+  ]

@@ -1,0 +1,39 @@
+.m2firstheader {
+	margin: 0;
+	clear: both;
+	width: 100%;
+}
+
+.m2secondtheader {
+	width: 100%;
+	background-color: #F2C778;
+}
+
+.m2header {
+	margin: 0;
+	background-color: #dbc89c;
+	font-family: Trebuchet MS;
+	font-size: 10pt;
+	text-align: right;
+	color: #FFFFFF;
+	height: 18px;
+}
+
+.m2acronimo {
+	font-family: ARIAL;
+	color: #FFFFFF;
+	font-size: 18px;
+}
+
+.ui-tabmenu-nav {
+	background: #F2C778;
+	background-image:none;
+	color: #453821;
+	font-weight: bold;
+}
+.ui-tabmenu{
+	border: none;
+}
+.ui-datalist-content{
+	border: none;
+}

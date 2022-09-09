@@ -1,0 +1,5 @@
+{
+    "labels": ["B2_IL_IMPAREMENT", "B2_INPUT_GEST", "B2_INSTVALS_SEGN", "B2_REPORT_PAG"],
+    "numGiriDati": [2, 4, 2, 3],
+    "numGiriIndici": [3, 7, 49, 9]
+}

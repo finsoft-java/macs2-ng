@@ -1,0 +1,7 @@
+{
+    "labels": ["B2_IL_IMPAREMENT", "B2_INPUT_GEST", "B2_INSTVALS_SEGN", "B2_REPORT_PAG"],
+    "datiOccupati": [22079, 1075329, 461607, 207728],
+    "datiLiberi": [32193, 107983, 204649, 23360],
+    "indiciOccupati": [12286, 498861, 49, 35928],
+    "indiciLiberi": [3, 71875, 25564, 13381]
+}
