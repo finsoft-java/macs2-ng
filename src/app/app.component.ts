@@ -28,7 +28,9 @@ export class AppComponent {
           {
               label: 'Rettifiche',
               icon: 'pi pi-fw pi-pencil',
-              url: '../u7ba0'
+              style: 'margin-left:200px', // non funziona
+              url: '../u7ba0',
+              styleClass: 'a-destra'
           }
       ];
 }

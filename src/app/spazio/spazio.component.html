@@ -11,13 +11,13 @@
             </div>
             <div class="col-2"></div>
             <div class="col-7">
-                <p-chart *ngIf="giriChartData" type="bar" zoom="true" [data]="giriChartData" [options]="giriChartOptions"></p-chart>
+                <p-chart *ngIf="giriChartData" type="bar" width="50vw" height="40vh" [data]="giriChartData" [options]="giriChartOptions"></p-chart>
             </div>
         </div>
     </p-accordionTab>
     <p-accordionTab header="Spazio occupato / libero - Dati aggiornati al: {{dataAggiornamento}}">
-        <div class="col-12" style="height:calc( 100vh - 400px );">
-            <p-chart *ngIf="detailsChartData" type="bar" zoom="true" [data]="detailsChartData" [options]="detailsChartOptions"></p-chart>
+        <div class="col-12" style="height:calc( 100vh - 400px );margin-left:calc( 20vw / 2)">
+            <p-chart *ngIf="detailsChartData" type="bar" width="80vw" height="40vh" [data]="detailsChartData" [options]="detailsChartOptions"></p-chart>
         </div>
     </p-accordionTab>
 </p-accordion>
